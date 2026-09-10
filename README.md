@@ -59,6 +59,9 @@ Downloaded the official Kali Linux VM image from kali.org rather than installing
 - Allocated **2048 MB RAM**, balancing performance against my host machine's limits
 - Left the virtual disk at default size since I'm not doing anything storage-heavy yet
 - Kept CPU cores conservative so my host stays responsive while the VM runs
+
+![](VM-setup.png)
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### 3. Creating the Internal Network
  
