@@ -74,6 +74,8 @@ I picked Internal Network specifically because it keeps the lab fully isolated f
 ### 4. Verifying Network Settings on Kali
  
 Booted into Kali and checked that the adapter was recognized correctly at the OS level, not just in the VirtualBox settings panel. Made sure the interface came up and was actually attached to `LAB-NET` rather than silently falling back to NAT. 
+
+```text
 ┌──(adox㉿root)-[~]
 └─$ ip -br a
 lo               UNKNOWN        127.0.0.1/8 ::1/128 
@@ -85,6 +87,7 @@ eth1             UP             10.0.0.3/24
 default via 10.0.2.2 dev eth0 proto dhcp src 10.0.2.15 metric 100 
 10.0.0.0/24 dev eth1 proto kernel scope link src 10.0.0.3 metric 101 
 10.0.2.0/24 dev eth0 proto kernel scope link src 10.0.2.15 metric 100
+```
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 ### 5. Testing Connectivity and DNS
