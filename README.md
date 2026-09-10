@@ -63,7 +63,26 @@ Downloaded the official Kali Linux VM image from kali.org rather than installing
 ![](VM-setup.png)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
-### 3. Creating the Internal Network
+
+## 3. Create the NAT Network
+
+A dedicated NAT Network was created in VirtualBox.
+
+Configuration:
+Network Name: NatNetwork
+IPv4 Prefix:  10.0.2.0/24
+DHCP:         Enabled
+IPv6:         Disabled
+
+![](NAT-Network.jpeg)
+
+A **NAT Network** was selected because multiple virtual machines connected to the same NAT Network can communicate with one another while also having outbound network connectivity.
+
+This will allow future attacker and target VMs to communicate within the lab.
+
+----------
+
+### 4. Creating the Internal Network
  
 This was the part I spent the most time getting right. Instead of using a regular NAT adapter, I created a dedicated **Internal Network** named `LAB-NET`:
  
@@ -73,10 +92,15 @@ This was the part I spent the most time getting right. Instead of using a regula
 - **Promiscuous Mode: Deny** — no need for packet sniffing across other VMs at this stage
 - Enabled **Virtual Cable Connected** so the adapter is actually live
 I picked Internal Network specifically because it keeps the lab fully isolated from my host and the outside internet — only VMs attached to `LAB-NET` can see each other. That isolation matters more here than outbound internet access would.
+
+![](NAT-Internal-Network.jpeg)
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 ### 4. Verifying Network Settings on Kali
  
 Booted into Kali and checked that the adapter was recognized correctly at the OS level, not just in the VirtualBox settings panel. Made sure the interface came up and was actually attached to `LAB-NET` rather than silently falling back to NAT. 
+
+![](verifying-network-settings-on-kali.jpeg)
 
 ```text
 ┌──(adox㉿root)-[~]
